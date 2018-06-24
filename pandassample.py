@@ -25,7 +25,7 @@ cars.index = row_labels
 print(cars)
 
 #Read the cars.csv
-cars = pd.read_csv('C:/Users/admin/python/datacamp-python/cars.csv',index_col=0)
+cars = pd.read_csv('/Users/vinodkumarv/PycharmProjects/datacamp-python/cars.csv',index_col=0)
 
 # Print out cars
 print(cars)
@@ -45,6 +45,20 @@ print(cars.loc[["JAP","EG","IN"]])
 #row access loc with two columns
 print(cars.loc[["JAP","EG","IN"],["country","cars_per_cap"]])
 
+
+#row access loc all rows with two columns
+print(cars.loc[:,["country","cars_per_cap"]])
+
 #row access loc
 print(cars.loc[["JAP"]])
 
+#row access loc
+print(cars.iloc[[0,1,2]])
+
+
+#row access loc with two columns
+print(cars.iloc[[0,1,2],[0,1]])
+
+
+#row access loc all rows with two columns
+print(cars.iloc[:,[0,1]])
