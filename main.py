@@ -1,2 +1,2 @@
-
-print("Hello World!")
+#!/usr/bin/python
+import plots.plots
