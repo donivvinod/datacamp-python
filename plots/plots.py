@@ -14,4 +14,6 @@ print(pop[len(pop)-1])
 plt.plot(year,pop)
 
 # Display the plot with plt.show()
+print("Plot showing population increase in billions over the years")
 plt.show()
+
