@@ -101,3 +101,17 @@ medium = cars[between]
 
 # Print medium
 print(medium)
+
+#Selective print and adding new column
+for label,row in cars.iterrows() :
+    print (label+ "-->" + row["country"])
+    print(row)
+    cars.loc[label,"name_length"] = len(row["country"])
+
+print(cars)    
+
+#the above approach of adding a column is ineffecient for large dataframes
+# use apply instead
+cars["name_length"] = cars["country"].apply(len)
+print(cars)    
+
