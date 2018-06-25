@@ -35,3 +35,8 @@ europe2['italy'] = data
 
 # Print europe
 print(europe2)
+
+#iterate and print dictionary contents
+for key,value in europe2.items() :
+    print(key + "----->" + str(value))
+
