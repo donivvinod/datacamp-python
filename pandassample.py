@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import pandas as pd
+import numpy as np
 
 # Pre-defined lists
 names = ['United States', 'Australia', 'Japan', 'India', 'Russia', 'Morocco', 'Egypt']
@@ -25,7 +26,8 @@ cars.index = row_labels
 print(cars)
 
 #Read the cars.csv
-cars = pd.read_csv('/Users/vinodkumarv/PycharmProjects/datacamp-python/cars.csv',index_col=0)
+#cars = pd.read_csv('/Users/vinodkumarv/PycharmProjects/datacamp-python/cars.csv',index_col=0)
+cars = pd.read_csv('C:/Users/admin/python/datacamp-python/cars.csv',index_col=0)
 
 # Print out cars
 print(cars)
@@ -62,3 +64,40 @@ print(cars.iloc[[0,1,2],[0,1]])
 
 #row access loc all rows with two columns
 print(cars.iloc[:,[0,1]])
+
+
+#Filtering pandas dataframe
+is_huge = cars["cars_per_cap"] > 500
+print(is_huge)
+#Subset DF
+print(cars[is_huge])
+
+#Filtering DF with numpys
+is_medium =  np.logical_and(cars["cars_per_cap"] > 200, cars["cars_per_cap"] < 500)
+print(cars[is_medium])
+
+# Extract drives_right column as Series: dr
+dr = cars["drives_right"]
+
+# Use dr to subset cars: sel
+sel = cars[dr == True]
+
+# Print sel
+print(sel)
+
+# Create car_maniac: observations that have a cars_per_cap over 500
+cpc = cars["cars_per_cap"]
+many_cars = cpc>500
+car_maniac = cars[many_cars]
+
+# Print car_maniac
+print(car_maniac)
+
+# Create medium: observations with cars_per_cap between 100 and 500
+cpc = cars['cars_per_cap']
+between = np.logical_and(cpc > 10, cpc < 80)
+medium = cars[between]
+
+
+# Print medium
+print(medium)
